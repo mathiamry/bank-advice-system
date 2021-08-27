@@ -1,0 +1,63 @@
+entity Agency {
+	name	String required,
+    address	String required,
+    contact String ,
+    email	String required  pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+}
+
+entity Enterprise {
+	name	String required,
+    address	String required,
+    ninea	String,
+    email	String required  pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+}
+
+entity Advisor {
+	gender Gender
+	telephone String required maxlength(20),
+}
+
+entity Manager {
+	gender Gender,
+	telephone String required maxlength(20),
+}
+
+entity Appointment {
+	created				Instant required,
+	appointementDate 	LocalDate required,
+    startDate			Instant required,
+    endDate				Instant required,
+    title				String maxlength(15),
+    description 		String,
+    status 				Status,
+    statusChangeDate	Instant required,
+    commentary 			String
+}
+
+relationship OneToMany {
+	Manager{appointments} to Appointment{Manager required},
+    Advisor{appointments} to Appointment{Advisor required},
+}
+
+
+relationship OneToOne {
+	Enterprise{manager} to Manager,
+	Advisor{user(login) required} to User,
+    Manager{user(login) required} to User
+}
+relationship ManyToOne {
+	Advisor{agency} to Agency
+}
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+enum Status {
+	APPROVED, 
+    REJECTED,
+    REPORTED,
+    CANCELLED
+}
+
+paginate Appointment with pagination
