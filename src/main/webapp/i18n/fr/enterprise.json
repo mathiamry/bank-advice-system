@@ -1,0 +1,28 @@
+{
+  "bankAdviceSystemApp": {
+    "enterprise": {
+      "home": {
+        "title": "Enterprises",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Enterprise",
+        "createOrEditLabel": "Créer ou éditer un Enterprise",
+        "notFound": "Aucun Enterprise trouvé"
+      },
+      "created": "Un nouveau Enterprise a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Enterprise avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Enterprise avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Enterprise {{ id }} ?"
+      },
+      "detail": {
+        "title": "Enterprise"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "ninea": "Ninea",
+      "email": "Email",
+      "manager": "Manager"
+    }
+  }
+}

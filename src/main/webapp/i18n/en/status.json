@@ -1,0 +1,11 @@
+{
+  "bankAdviceSystemApp": {
+    "Status": {
+      "null": "",
+      "APPROVED": "APPROVED",
+      "REJECTED": "REJECTED",
+      "REPORTED": "REPORTED",
+      "CANCELLED": "CANCELLED"
+    }
+  }
+}

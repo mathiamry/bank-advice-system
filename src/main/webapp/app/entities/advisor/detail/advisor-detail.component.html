@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="advisor">
+      <h2 data-cy="advisorDetailsHeading"><span jhiTranslate="bankAdviceSystemApp.advisor.detail.title">Advisor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ advisor.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.advisor.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'bankAdviceSystemApp.Gender.' + advisor.gender }}">{{ advisor.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.advisor.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ advisor.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.advisor.user">User</span></dt>
+        <dd>
+          <span>{{ advisor.user?.login }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.advisor.agency">Agency</span></dt>
+        <dd>
+          <div *ngIf="advisor.agency">
+            <a [routerLink]="['/agency', advisor.agency?.id, 'view']">{{ advisor.agency?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/advisor', advisor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
