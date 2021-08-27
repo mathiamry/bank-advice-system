@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appointment">
+      <h2 data-cy="appointmentDetailsHeading"><span jhiTranslate="bankAdviceSystemApp.appointment.detail.title">Appointment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appointment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.created">Created</span></dt>
+        <dd>
+          <span>{{ appointment.created | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.appointementDate">Appointement Date</span></dt>
+        <dd>
+          <span>{{ appointment.appointementDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ appointment.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ appointment.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.title">Title</span></dt>
+        <dd>
+          <span>{{ appointment.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.description">Description</span></dt>
+        <dd>
+          <span>{{ appointment.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'bankAdviceSystemApp.Status.' + appointment.status }}">{{ appointment.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.statusChangeDate">Status Change Date</span></dt>
+        <dd>
+          <span>{{ appointment.statusChangeDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.commentary">Commentary</span></dt>
+        <dd>
+          <span>{{ appointment.commentary }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.manager">Manager</span></dt>
+        <dd>
+          <div *ngIf="appointment.manager">
+            <a [routerLink]="['/manager', appointment.manager?.id, 'view']">{{ appointment.manager?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="bankAdviceSystemApp.appointment.advisor">Advisor</span></dt>
+        <dd>
+          <div *ngIf="appointment.advisor">
+            <a [routerLink]="['/advisor', appointment.advisor?.id, 'view']">{{ appointment.advisor?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/appointment', appointment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "bankAdviceSystemApp": {
+    "advisor": {
+      "home": {
+        "title": "Advisors",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Advisor",
+        "createOrEditLabel": "Créer ou éditer un Advisor",
+        "notFound": "Aucun Advisor trouvé"
+      },
+      "created": "Un nouveau Advisor a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Advisor avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Advisor avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Advisor {{ id }} ?"
+      },
+      "detail": {
+        "title": "Advisor"
+      },
+      "id": "ID",
+      "gender": "Gender",
+      "telephone": "Telephone",
+      "user": "User",
+      "appointments": "Appointments",
+      "agency": "Agency"
+    }
+  }
+}

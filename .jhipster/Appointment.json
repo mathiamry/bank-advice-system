@@ -1,0 +1,75 @@
+{
+  "name": "Appointment",
+  "fields": [
+    {
+      "fieldName": "created",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "appointementDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "15"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "APPROVED,REJECTED,REPORTED,CANCELLED"
+    },
+    {
+      "fieldName": "statusChangeDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "commentary",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "manager",
+      "otherEntityRelationshipName": "appointments",
+      "relationshipValidateRules": "required",
+      "relationshipName": "manager"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "advisor",
+      "otherEntityRelationshipName": "appointments",
+      "relationshipValidateRules": "required",
+      "relationshipName": "advisor"
+    }
+  ],
+  "entityTableName": "appointment",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210827132147"
+}
